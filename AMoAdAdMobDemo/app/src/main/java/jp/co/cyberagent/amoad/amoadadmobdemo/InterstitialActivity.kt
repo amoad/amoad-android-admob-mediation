@@ -1,6 +1,5 @@
 package jp.co.cyberagent.amoad.amoadadmobdemo
 
-import android.content.res.Configuration
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -62,6 +61,10 @@ class InterstitialActivity : AppCompatActivity() {
 
             override fun onAdClosed() {
                 Log.d("debug", "onAdClosed")
+            }
+
+            override fun onAdClicked() {
+                Log.d("debug", "onAdClicked")
             }
         }
     }

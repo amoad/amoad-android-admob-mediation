@@ -10,11 +10,8 @@
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/infeedAfio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         ads:adSize="BANNER"
         ads:adUnitId="ca-app-pub-6717685917384193/5556810489">
     </com.google.android.gms.ads.AdView>

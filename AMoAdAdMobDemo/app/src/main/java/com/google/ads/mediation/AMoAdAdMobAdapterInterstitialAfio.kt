@@ -37,15 +37,6 @@ class AMoAdAdMobAdapterInterstitialAfio : CustomEventInterstitial, AMoAdIntersti
         }
     }
 
-    override fun onDestroy() {
-    }
-
-    override fun onPause() {
-    }
-
-    override fun onResume() {
-    }
-
     override fun onLoad(amoadInterstitialVideo: AMoAdInterstitialVideo?, result: AdResult?) {
 
         when (result) {
@@ -90,5 +81,14 @@ class AMoAdAdMobAdapterInterstitialAfio : CustomEventInterstitial, AMoAdIntersti
         Log.d("debug", "広告がクリックされた")
         _interstitialAfioListener?.onAdClicked()
         _interstitialAfioListener?.onAdLeftApplication()
+    }
+
+    override fun onDestroy() {
+    }
+
+    override fun onPause() {
+    }
+
+    override fun onResume() {
     }
 }

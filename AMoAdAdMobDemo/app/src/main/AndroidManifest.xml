@@ -26,7 +26,8 @@
         </activity>
         <activity android:name="com.amoad.AMoAdInterstitialVideoActivity" />
         <activity android:name=".BannerActivity" />
-        <activity android:name=".InterstitialActivity" />
+        <activity android:name=".InterstitialActivity"
+            android:configChanges="orientation|screenSize" />
         <activity android:name=".InfeedAfioActivity" />
         <activity android:name=".InterstitialAfioActivity"></activity>
     </application>
