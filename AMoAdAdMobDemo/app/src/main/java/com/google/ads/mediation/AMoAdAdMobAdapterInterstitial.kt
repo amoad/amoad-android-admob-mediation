@@ -50,9 +50,9 @@ class AMoAdAdMobAdapterInterstitial : CustomEventInterstitial {
 
         if (InterstitialAd.isLoaded(_sid)) {
 
-            InterstitialAd.show(_context as Activity?, _sid) { result ->
+            _interstitialListener?.onAdOpened()
 
-                _interstitialListener?.onAdOpened()
+            InterstitialAd.show(_context as Activity?, _sid) { result ->
 
                 when (result) {
                     InterstitialAd.Result.Click -> {

@@ -62,6 +62,10 @@ class InterstitialActivity : AppCompatActivity() {
             override fun onAdClosed() {
                 Log.d("debug", "onAdClosed")
             }
+
+            override fun onAdClicked() {
+                Log.d("debug", "onAdClicked")
+            }
         }
     }
 }
