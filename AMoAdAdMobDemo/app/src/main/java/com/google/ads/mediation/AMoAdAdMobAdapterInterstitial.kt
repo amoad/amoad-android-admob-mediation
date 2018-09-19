@@ -27,7 +27,7 @@ class AMoAdAdMobAdapterInterstitial : CustomEventInterstitial {
         _sid ?: return
 
         InterstitialAd.register(_sid)
-        InterstitialAd.setAutoReload(_sid, true)
+//        InterstitialAd.setAutoReload(_sid, true)
         InterstitialAd.load(context, _sid) { sid, result, error ->
             when (result) {
                 AdResult.Success -> {
@@ -62,7 +62,7 @@ class AMoAdAdMobAdapterInterstitial : CustomEventInterstitial {
                         _interstitialListener?.onAdClosed()
                     }
                     InterstitialAd.Result.Failure -> {
-                        Log.d("debug", "Failure")
+                        Log.d("debug", "広告の取得に失敗しました")
                         _interstitialListener?.onAdFailedToLoad(AdRequest.ERROR_CODE_INTERNAL_ERROR)
                     }
                     InterstitialAd.Result.Duplicated -> {
@@ -73,7 +73,7 @@ class AMoAdAdMobAdapterInterstitial : CustomEventInterstitial {
                         _interstitialListener?.onAdClosed()
                     }
                     InterstitialAd.Result.Close -> {
-                        Log.d("debug", "広告の取得に失敗しました")
+                        Log.d("debug", "閉じるボタンがクリックされたので閉じました")
                         _interstitialListener?.onAdClosed()
                     }
                 }
