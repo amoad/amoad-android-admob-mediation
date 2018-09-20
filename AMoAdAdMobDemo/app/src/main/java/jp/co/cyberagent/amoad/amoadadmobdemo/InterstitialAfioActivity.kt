@@ -43,7 +43,7 @@ class InterstitialAfioActivity : AppCompatActivity() {
                 if (interstitialAfio.isLoaded) {
                     interstitialAfio.show()
                 } else {
-                    Log.d("TAG", "The interstitialAfio wasn't loaded yet.")
+                    Log.d("debug", "The interstitialAfio wasn't loaded yet.")
                 }
             }
 
