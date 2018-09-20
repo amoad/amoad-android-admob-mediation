@@ -13,7 +13,7 @@ import com.google.android.gms.ads.mediation.customevent.CustomEventBannerListene
 
 class AMoAdAdMobAdapterBanner : CustomEventBanner, AdCallback {
 
-    private var _amoadView: AMoAdView? = null
+    private lateinit var _amoadView: AMoAdView
     private var _bannerListener: CustomEventBannerListener? = null
 
     override fun requestBannerAd(context: Context, listener: CustomEventBannerListener, serverParameter: String, size: AdSize, mediationAdRequest: MediationAdRequest, customEventExtras: Bundle?) {
@@ -21,11 +21,15 @@ class AMoAdAdMobAdapterBanner : CustomEventBanner, AdCallback {
         _bannerListener = listener
         _bannerListener ?: return
 
-        if(_amoadView == null) {
-            _amoadView = AMoAdView(context)
-            _amoadView?.sid = serverParameter
-            _amoadView?.setCallback(this)
-        }
+        _amoadView = AMoAdView(context)
+        _amoadView.sid = serverParameter
+
+        // 任意で各propertyの割り当てが可能です。
+//        _amoadView.setClickTransition(AMoAdView.ClickTransition.JUMP)
+//        _amoadView.setRotateTransition(AMoAdView.RotateTransition.ROTATE)
+//        _amoadView.setResponsiveStyle(true)
+
+        _amoadView.setCallback(this)
     }
 
     override fun didReceiveAd() {

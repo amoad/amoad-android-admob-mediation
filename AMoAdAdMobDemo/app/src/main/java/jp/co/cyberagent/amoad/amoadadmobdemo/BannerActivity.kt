@@ -12,7 +12,6 @@ class BannerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_banner)
-
         createAndLoadBannerView()
     }
 
@@ -22,7 +21,6 @@ class BannerActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        Log.d("debug", "onBackPressed")
         super.onBackPressed()
     }
 

@@ -26,6 +26,8 @@ class AMoAdAdMobAdapterInterstitialAfio : CustomEventInterstitial, AMoAdIntersti
         _sid ?: return
 
         AMoAdInterstitialVideo.sharedInstance(_context, _sid, "").setListener(this)
+        // 任意でpropertyの割り当てが可能です。
+//        AMoAdInterstitialVideo.sharedInstance(_context, _sid, "").isCancellable = false
         AMoAdInterstitialVideo.sharedInstance(_context, _sid, "").load(_context)
     }
 
