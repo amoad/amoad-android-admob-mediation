@@ -1,0 +1,1 @@
+# amoad-android-admob-mediation
