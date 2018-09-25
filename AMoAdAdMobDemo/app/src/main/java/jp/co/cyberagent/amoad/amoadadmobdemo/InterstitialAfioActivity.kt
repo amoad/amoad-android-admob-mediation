@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_interstitial_afio.*
 
 class InterstitialAfioActivity : AppCompatActivity() {
 
-    private var adUnitID = "ca-app-pub-6717685917384193/3260151337"
+    private var adUnitID = "管理画面から取得したAdUnitIDを指定してください。"
     private lateinit var interstitialAfio: InterstitialAd
 
     override fun onCreate(savedInstanceState: Bundle?) {

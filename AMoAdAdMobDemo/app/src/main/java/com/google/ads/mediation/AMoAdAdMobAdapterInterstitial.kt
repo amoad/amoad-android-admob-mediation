@@ -18,15 +18,15 @@ class AMoAdAdMobAdapterInterstitial : CustomEventInterstitial {
     private var _context: Context? = null
 
     companion object {
-        var sid: String? = null
-        fun saveSid(sid: String?) {
+        private var sid: String? = null
+        private fun saveSid(sid: String?) {
             AMoAdAdMobAdapterInterstitial.sid = sid
+        }
+        private fun deleteSid() {
+            AMoAdAdMobAdapterInterstitial.sid = null
         }
         fun readSid() : String? {
             return AMoAdAdMobAdapterInterstitial.sid
-        }
-        fun deleteSid() {
-            AMoAdAdMobAdapterInterstitial.sid = null
         }
         fun closeInterstitial(sid: String?) {
             InterstitialAd.close(sid)
@@ -44,7 +44,7 @@ class AMoAdAdMobAdapterInterstitial : CustomEventInterstitial {
         _sid ?: return
 
         InterstitialAd.register(_sid)
-//        InterstitialAd.setAutoReload(_sid, true)
+//        InterstitialAd.setAutoReload(_sid, true) // 任意でpropertyの割り当てが可能です。
         InterstitialAd.load(context, _sid) { sid, result, error ->
             when (result) {
                 AdResult.Success -> {
@@ -69,10 +69,8 @@ class AMoAdAdMobAdapterInterstitial : CustomEventInterstitial {
 
             _interstitialListener?.onAdOpened()
 
-            // close用にstatic sidを保持
-            _sid.let {
-                AMoAdAdMobAdapterInterstitial.saveSid(it)
-            }
+            // close用にstaticでsidを保持
+            _sid.let { AMoAdAdMobAdapterInterstitial.saveSid(it) }
 
             InterstitialAd.show(_context as Activity?, _sid) { result ->
 

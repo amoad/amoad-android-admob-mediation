@@ -20,9 +20,11 @@ class AMoAdAdMobAdapterBanner : CustomEventBanner, AdCallback {
 
         _bannerListener = listener
         _bannerListener ?: return
+        var sid = serverParameter
+        sid ?: return
 
         _amoadView = AMoAdView(context)
-        _amoadView.sid = serverParameter
+        _amoadView.sid = sid
 
         // 任意で各propertyの割り当てが可能です。
 //        _amoadView.setClickTransition(AMoAdView.ClickTransition.JUMP)

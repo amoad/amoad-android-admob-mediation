@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-6717685917384193/5556810489">
+        ads:adUnitId="管理画面から取得したAdUnitIDを指定してください。">
     </com.google.android.gms.ads.AdView>
 
 </LinearLayout>
