@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_interstitial.*
 
 class InterstitialActivity : AppCompatActivity() {
 
-    private var adUnitID = "ca-app-pub-6717685917384193/9752573348"
+    private var adUnitID = "管理画面から取得したAdUnitIDを指定してください。"
     private lateinit var interstitial: InterstitialAd
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +47,7 @@ class InterstitialActivity : AppCompatActivity() {
                 if (interstitial.isLoaded) {
                     interstitial.show()
                 } else {
-                    Log.d("TAG", "The interstitial wasn't loaded yet.")
+                    Log.d("debug", "The interstitial wasn't loaded yet.")
                 }
             }
 

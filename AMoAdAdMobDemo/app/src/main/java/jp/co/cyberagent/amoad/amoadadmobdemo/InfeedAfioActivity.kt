@@ -22,7 +22,6 @@ class InfeedAfioActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        Log.d("debug", "onBackPressed")
         super.onBackPressed()
     }
 
