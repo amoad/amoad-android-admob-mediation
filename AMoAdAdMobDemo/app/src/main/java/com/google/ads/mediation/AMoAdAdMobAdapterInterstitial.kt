@@ -17,6 +17,23 @@ class AMoAdAdMobAdapterInterstitial : CustomEventInterstitial {
     private var _interstitialListener: CustomEventInterstitialListener? = null
     private var _context: Context? = null
 
+    companion object {
+        var sid: String? = null
+        fun saveSid(sid: String?) {
+            AMoAdAdMobAdapterInterstitial.sid = sid
+        }
+        fun readSid() : String? {
+            return AMoAdAdMobAdapterInterstitial.sid
+        }
+        fun deleteSid() {
+            AMoAdAdMobAdapterInterstitial.sid = null
+        }
+        fun closeInterstitial(sid: String?) {
+            InterstitialAd.close(sid)
+            AMoAdAdMobAdapterInterstitial.deleteSid()
+        }
+    }
+
     override fun requestInterstitialAd(context: Context?, listener: CustomEventInterstitialListener?, serverParameter: String?, mediationAdRequest: MediationAdRequest?, customEventExtras: Bundle?) {
 
         _context = context
@@ -51,6 +68,11 @@ class AMoAdAdMobAdapterInterstitial : CustomEventInterstitial {
         if (InterstitialAd.isLoaded(_sid)) {
 
             _interstitialListener?.onAdOpened()
+
+            // close用にstatic sidを保持
+            _sid.let {
+                AMoAdAdMobAdapterInterstitial.saveSid(it)
+            }
 
             InterstitialAd.show(_context as Activity?, _sid) { result ->
 

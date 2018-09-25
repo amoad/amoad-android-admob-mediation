@@ -3,6 +3,7 @@ package jp.co.cyberagent.amoad.amoadadmobdemo
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.google.ads.mediation.AMoAdAdMobAdapterInterstitial
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
@@ -20,6 +21,9 @@ class InterstitialActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
+        AMoAdAdMobAdapterInterstitial.readSid()?.let {
+            AMoAdAdMobAdapterInterstitial.closeInterstitial(it)
+        }
         super.onDestroy()
     }
 
