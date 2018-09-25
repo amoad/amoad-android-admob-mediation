@@ -29,7 +29,7 @@ class InfeedAfioActivity : AppCompatActivity() {
     internal fun createAndLoadInfeedAfio() {
 
         val extras = Bundle()
-        extras.putString("adView", "item_afio")
+        extras.putInt(AMoAdAdMobAdapterInfeedAfio.extrasKey, R.layout.item_afio)
 
         val request = AdRequest.Builder().addCustomEventExtrasBundle(AMoAdAdMobAdapterInfeedAfio::class.java, extras).build()
         infeedAfio.loadAd(request)

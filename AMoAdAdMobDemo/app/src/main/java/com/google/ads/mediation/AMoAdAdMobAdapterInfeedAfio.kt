@@ -20,6 +20,9 @@ class AMoAdAdMobAdapterInfeedAfio : CustomEventBanner, AMoAdNativeListener {
 
     private var _infeedAfioListener: CustomEventBannerListener? = null
     var view: View? = null
+    companion object {
+        const val extrasKey = "adView"
+    }
 
     override fun requestBannerAd(context: Context, listener: CustomEventBannerListener, serverParameter: String, size: AdSize, mediationAdRequest: MediationAdRequest, customEventExtras: Bundle?) {
 
@@ -27,20 +30,17 @@ class AMoAdAdMobAdapterInfeedAfio : CustomEventBanner, AMoAdNativeListener {
         _infeedAfioListener ?: return
         var extras = customEventExtras
         extras ?: return
+        var resId = extras.getInt(extrasKey)
+        resId ?: return
         var sid = serverParameter
         sid ?: return
 
-        val resId = getResourceId(extras.getString("adView"), "layout", context)
         view = LayoutInflater.from(context).inflate(resId, LinearLayout(context) as ViewGroup)
         view?.visibility = View.INVISIBLE
-
+        
         // 広告準備・取得
         AMoAdNativeViewManager.getInstance(context).prepareAd(sid, true, true)
         AMoAdNativeViewManager.getInstance(context).renderAd(sid, "", view, this)
-    }
-
-    internal fun getResourceId(resourceName: String, type: String, context: Context): Int {
-        return context.resources.getIdentifier(resourceName, "layout", context.packageName)
     }
 
     override fun onReceived(s: String, s1: String, view: View, result: AMoAdNativeListener.Result) {
