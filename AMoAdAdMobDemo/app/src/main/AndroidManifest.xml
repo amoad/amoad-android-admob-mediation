@@ -15,8 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data
-            android:name="com.google.android.gms.ads.ca-app-pub-6717685917384193~5701443469"
-            android:value="ca-app-pub-6717685917384193~5701443469"/>
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="管理画面から取得したアプリIDを指定してください。"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
