@@ -19,7 +19,6 @@ import com.google.android.gms.ads.mediation.customevent.CustomEventBannerListene
 class AMoAdAdMobAdapterInfeedAfio : CustomEventBanner, AMoAdNativeListener {
 
     private var _infeedAfioListener: CustomEventBannerListener? = null
-    var view: View? = null
     companion object {
         const val extrasKey = "adView"
     }
@@ -28,20 +27,19 @@ class AMoAdAdMobAdapterInfeedAfio : CustomEventBanner, AMoAdNativeListener {
 
         _infeedAfioListener = listener
         _infeedAfioListener ?: return
-        var extras = customEventExtras
-        extras ?: return
-        var resId = extras.getInt(extrasKey)
+        var resId = customEventExtras?.getInt(extrasKey)
         resId ?: return
         var sid = serverParameter
         sid ?: return
 
-        view = LayoutInflater.from(context).inflate(resId, LinearLayout(context) as ViewGroup)
+        var view = LayoutInflater.from(context).inflate(resId, LinearLayout(context) as ViewGroup)
         view?.visibility = View.INVISIBLE
         
         // 広告準備・取得
         AMoAdNativeViewManager.getInstance(context).prepareAd(sid, true, true)
         AMoAdNativeViewManager.getInstance(context).renderAd(sid, "", view, this)
     }
+
 
     override fun onReceived(s: String, s1: String, view: View, result: AMoAdNativeListener.Result) {
         when (result) {
