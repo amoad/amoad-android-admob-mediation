@@ -16,7 +16,7 @@
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
         ads:adSize="BANNER"
-        ads:adUnitId="管理画面から取得したAdUnitIDを指定してください。">
+        ads:adUnitId="管理画面から取得したAdUnitIDを指定してください">
     </com.google.android.gms.ads.AdView>
 
 </LinearLayout>
