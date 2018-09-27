@@ -4,14 +4,12 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
-import com.amoad.AMoAdBuildConfig
-import com.amoad.AMoAdLogger
 import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private var appId = "管理画面から取得したアプリIDを指定してください。"
+    private var appId = "管理画面から取得したアプリIDを指定してください"
     private data class Item<T>(val title: String, val className: Class<T>)
     private var items = arrayListOf(
         Item("バナー広告", BannerActivity::class.java),
@@ -23,7 +21,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         MobileAds.initialize(this, appId)
         initListView()
     }
